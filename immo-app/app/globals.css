@@ -1,0 +1,6 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Requis pour l'affichage correct de la carte Leaflet (étape Localisation) */
+@import 'leaflet/dist/leaflet.css';

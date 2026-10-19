@@ -1,0 +1,17 @@
+services:
+  web:
+    build: .
+    ports:
+      - "3000:3000"
+    environment:
+      # Nécessaire pour que le rechargement à chaud fonctionne sur Windows/Mac
+      - WATCHPACK_POLLING=true
+      - NEXT_TELEMETRY_DISABLED=1
+    volumes:
+      - .:/app                          # ton code (dont .env.local, lu par Next.js)
+      - node_modules:/app/node_modules  # évite d'utiliser les node_modules de l'hôte
+      - next_cache:/app/.next           # évite le .next périmé du zip
+
+volumes:
+  node_modules:
+  next_cache:
